@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vue双向绑定原理及实现</title>
+  </head>
+  <body>
+    <div id="app">
+      <input class="form-control" v-model="name" type="text" />
+      <h1>{{name}}</h1>
+      {{name}}
+    </div>
+
+    <!-- <script src="./js/observer.js"></script>
+    <script src="./js/watcher.js"></script>
+    <script src="./js/compile.js"></script> -->
+    <script src="./js/index.js"></script>
+    <script>
+      const vm = new Mvue({
+        el: "#app",
+        data: {
+          name: "abc"
+        }
+      });
+      vm.$data.name = "asdasdasd";
+      console.log(vm.$data);
+    </script>
+  </body>
+</html>
