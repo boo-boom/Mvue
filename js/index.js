@@ -27,12 +27,12 @@ Mvue.prototype.init = function() {
   this.compile();
 };
 Mvue.prototype.observer = function(data) {
-  var dep = new Dep();
   Object.keys(data).forEach(function(key) {
+    var dep = new Dep();
     var value = data[key];
     Object.defineProperty(data, key, {
-      configurable: true,
-      enumerable: true,
+      configurable: true,   // 是否可配置，默认false [true: 可进行修改]
+      enumerable: true,     // 是否可枚举，默认false [true: 可进行循环]
       get: function() {
         if (Dep.target) {
           dep.addSub(Dep.target);
